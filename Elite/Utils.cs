@@ -48,7 +48,10 @@ namespace NOVAKIN.Mod.Elite
             //Make sure player controlled entities are destroyed.
             PlayerManager.Instance.DestroyPlayerControlledEntities(player);
 
-            BoltEntity entity = BoltNetwork.Instantiate(BoltPrefabs.BaseMech);
+            ArmorData armorData = LoadedMod.ModData.armors[0];
+            ArmorSetupToken armorSetupToken = new ArmorSetupToken(armorData);
+
+            BoltEntity entity = BoltNetwork.Instantiate(BoltPrefabs.BaseMech, armorSetupToken);
 
             if (entity != null)
             {

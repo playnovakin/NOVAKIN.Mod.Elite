@@ -76,13 +76,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Elite\Utils.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Elite\ModData.json" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>powershell Remove-Item -Path '$(SolutionDir)Elite.zip' -Force
 powershell Remove-Item -Path '$(SolutionDir)Elite.nkvol' -Force
 
 powershell New-Item -ItemType directory -Path "C:\Workspaces\NOVAKIN\Assets\StreamingAssets\Mods\Elite" -force
-powershell Compress-Archive -Path '$(SolutionDir)Elite/*.cs' -DestinationPath '$(SolutionDir)Elite.zip' -Force
+powershell Compress-Archive -Path '$(SolutionDir)Elite/ModData.json' -DestinationPath '$(SolutionDir)Elite.zip' -Force
+powershell Compress-Archive -Path '$(SolutionDir)Elite/*' -DestinationPath '$(SolutionDir)Elite.zip' -Force
 powershell Rename-Item '$(SolutionDir)Elite.zip' '$(SolutionDir)Elite.nkvol' -force
 powershell Copy-Item '$(SolutionDir)Elite.nkvol' "C:\Workspaces\NOVAKIN\Assets\StreamingAssets\Mods\Elite" -force</PostBuildEvent>
   </PropertyGroup>

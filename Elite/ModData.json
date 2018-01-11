@@ -1,0 +1,47 @@
+{
+  "modName": "elite",
+  "modVersion": "1.0a",
+  "modCreator": "BATTLE OVERRIDE",
+  "modDescription": null,
+  "modURL": "https://github.com/playnovakin/NOVAKIN.Mod.Elite",
+  "armors": [
+    {
+      "armorName": "Scout",
+	  "maxHealth": 100,
+      "maxEnergy": 80,
+      "energyRegenRate": 11.0,
+      "mass": 9.0,
+      "groundForce": 40.0,
+      "groundTraction": 3.0,
+      "walkSpeed": 11.0,
+      "jumpMinDot": 0.2,
+      "jumpGraceTime": 0.256,
+      "jumpImpulse": 37.0,
+      "jetForce": 236.0,
+      "jetSideForce": 0.8,
+      "jetForward": 22.0,
+      "minimumDamageSpeed": 25.0,
+      "jetEnergyDrain": 25.0,
+      "maxWeapons": 0
+    },
+	{
+      "armorName": "Mercenary",
+	  "maxHealth": 140,
+      "maxEnergy": 110,
+      "energyRegenRate": 14.0,
+      "mass": 13.0,
+      "groundForce": 35.0,
+      "groundTraction": 3.0,
+      "walkSpeed": 9.0,
+      "jumpMinDot": 0.2,
+      "jumpGraceTime": 0.256,
+      "jumpImpulse": 62.0,
+      "jetForce": 325.0,
+      "jetSideForce": 0.8,
+      "jetForward": 17.0,
+      "minimumDamageSpeed": 25.0,
+      "jetEnergyDrain": 32.0,
+      "maxWeapons": 0
+    }
+  ]
+}
