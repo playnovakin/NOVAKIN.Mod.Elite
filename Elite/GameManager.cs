@@ -126,7 +126,8 @@ namespace NOVAKIN.Mod.Elite
                 if (playersAwaitingRespawn.ContainsKey(player))
                     playersAwaitingRespawn.Remove(player);
 
-                playersAwaitingRespawn.Add(player, DateTime.Now.AddSeconds(3));
+                playersAwaitingRespawn.Add(player, DateTime.Now.AddSeconds(3.0f));
+                SendEventHandler.SendPlayerRespawnAvailableEvent(player.guid, 3.0f, 3.0f);
             }
         }
 
@@ -155,6 +156,7 @@ namespace NOVAKIN.Mod.Elite
                             Utils.SpawnPlayerAtPosition(player, spawnPosition, spawnRotation);
 
                             playersAwaitingRespawn.Remove(player);
+                            SendEventHandler.SendPlayerRespawnEvent(player.guid);
                         }
                     }
                 }

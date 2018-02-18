@@ -48,31 +48,37 @@ namespace NOVAKIN.Mod.Elite
             //Make sure player controlled entities are destroyed.
             PlayerManager.Instance.DestroyPlayerControlledEntities(player);
 
-            ArmorData armorData = LoadedMod.ModData.armors[0];
-            ArmorSetupToken armorSetupToken = new ArmorSetupToken(armorData);
+            ArmorData armorData = LoadedMod.ModData.armors[1];
 
-            BoltEntity entity = BoltNetwork.Instantiate(BoltPrefabs.BaseMech, armorSetupToken);
 
-            if (entity != null)
-            {
-                entity.transform.position = position;
-                entity.transform.rotation = rotation;
 
-                Unit unit = entity.GetComponent<Unit>();
-                unit.Setup(player.guid, player.teamId);
-                unit.gameObject.AddComponent<AbilityBoost>();
 
-                if (player.connection == null)
-                {
-                    entity.TakeControl();
-                }
-                else
-                {
-                    entity.AssignControl(player.connection);
-                }
+            //ArmorSetupToken armorSetupToken = new ArmorSetupToken(armorData);
 
-                player.SetControlledEntity(entity);
-            }
+            //BoltEntity entity = BoltNetwork.Instantiate(BoltPrefabs.BaseMech, armorSetupToken);
+
+            //if (entity != null)
+            //{
+            //    entity.transform.position = position;
+            //    entity.transform.rotation = rotation;
+
+            //    Unit unit = entity.GetComponent<Unit>();
+            //    unit.Setup(player.guid, player.teamId);
+            //    unit.gameObject.AddComponent<AbilityBoost>();
+
+                
+
+            //    if (player.connection == null)
+            //    {
+            //        entity.TakeControl();
+            //    }
+            //    else
+            //    {
+            //        entity.AssignControl(player.connection);
+            //    }
+
+            //    player.SetControlledEntity(entity);
+            //}
         }
     }
 }
