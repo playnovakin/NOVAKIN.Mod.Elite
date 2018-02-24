@@ -13,10 +13,8 @@ namespace NOVAKIN.Mod.Elite
         #region Startup
         protected virtual void Start()
         {
-            gameState = GameState.Instance;
-
             RegisterCallBacks();
-
+            gameState = GameState.Instance;
             PlayerManager.Instance.BeginRoundReset();
 
             StartCoroutine(MainRoutine());
@@ -45,6 +43,8 @@ namespace NOVAKIN.Mod.Elite
         #region Round Management
         protected virtual IEnumerator MainRoutine()
         {
+            gameState.currentRoundStarted = false;
+            gameState.currentRoundEnded = false;
             gameState.currentRoundLength = ServerManager.instance.serverSettingsData.serverSettings.roundLength * 60;
 
             SendCountdownMessage(15);
