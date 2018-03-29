@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace NOVAKIN.Mod.Elite
@@ -14,12 +10,15 @@ namespace NOVAKIN.Mod.Elite
         private FlagSpawnPoint flagSpawnPointTeam1;
         private FlagSpawnPoint flagSpawnPointTeam2;
 
+        private float flagReturnTime = 45.0f;
+
         #region Startup
         protected override void Start()
         {
             base.Start();
 
             FlagSetup();
+            StartCoroutine(FlagRoutine());
         }
 
         protected override void RegisterCallBacks()
@@ -40,6 +39,23 @@ namespace NOVAKIN.Mod.Elite
         #endregion
 
         #region Flag Stuff
+        IEnumerator FlagRoutine()
+        {
+            while (true)
+            {
+                if (flagTeam1 != null && flagTeam1.isHome == false && flagTeam1.carrier == null &&
+                    flagTeam1.droppedTime + flagReturnTime < BoltNetwork.serverTime)
+                    ReturnFlagHome(flagTeam1, false);
+
+
+                if (flagTeam2 != null && flagTeam2.isHome == false && flagTeam2.carrier == null &&
+                    flagTeam2.droppedTime + flagReturnTime < BoltNetwork.serverTime)
+                    ReturnFlagHome(flagTeam2, false);
+
+                yield return new WaitForFixedUpdate();
+            }
+        }
+
         protected void FlagSetup()
         {
             foreach (FlagSpawnPoint flagSpawnPoint in FindObjectsOfType<FlagSpawnPoint>())
@@ -145,12 +161,12 @@ namespace NOVAKIN.Mod.Elite
                 {
                     if (flag.teamID == 1)
                     {
-                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.playerGuid).displayName + " has taken " + gameState.team1Name + "'s flag!";
+                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.PlayerGuid).displayName + " has taken " + gameState.team1Name + "'s flag!";
                         SendEventHandler.SendToastMessageEvent(message, 2, "FlagTaken");
                     }
                     else if (flag.teamID == 2)
                     {
-                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.playerGuid).displayName + " has taken " + gameState.team2Name + "'s flag!";
+                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.PlayerGuid).displayName + " has taken " + gameState.team2Name + "'s flag!";
                         SendEventHandler.SendToastMessageEvent(message, 1, "FlagTaken");
                     }
                 }
@@ -168,14 +184,13 @@ namespace NOVAKIN.Mod.Elite
                     if (flag.teamID == 1)
                     {
                         GameState.Instance.team2Score++;
-
-                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.playerGuid).displayName + " has captured " + gameState.team1Name + "'s flag.";
+                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.PlayerGuid).displayName + " has captured " + gameState.team1Name + "'s flag.";
                         SendEventHandler.SendToastMessageEvent(message, 2, "FlagCapture");
                     }
                     else if (flag.teamID == 2)
                     {
                         GameState.Instance.team1Score++;
-                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.playerGuid).displayName + " has captured " + gameState.team2Name + "'s flag.";
+                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.PlayerGuid).displayName + " has captured " + gameState.team2Name + "'s flag.";
                         SendEventHandler.SendToastMessageEvent(message, 1, "FlagCapture");
                     }
 
@@ -192,20 +207,20 @@ namespace NOVAKIN.Mod.Elite
                 {
                     if (flagCarrier != null && flagCarrier.Robot != null)
                     {
-                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.playerGuid).displayName + " has dropped " + gameState.team1Name + "'s flag.";
-                        SendEventHandler.SendToastMessageEvent(message, 1, "FlagDropped");
+                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.PlayerGuid).displayName + " has dropped " + gameState.team1Name + "'s flag.";
+                        SendEventHandler.SendToastMessageEvent(message, 2, "FlagDropped");
                     }
                     else
                     {
                         string message = GameState.Instance.state.Team1Name + "'s Flag has been Dropped";
-                        SendEventHandler.SendToastMessageEvent(message, 1, "FlagDropped");
+                        SendEventHandler.SendToastMessageEvent(message, 2, "FlagDropped");
                     }
                 }
                 else if (flag == flagTeam2)
                 {
                     if (flagCarrier != null && flagCarrier.Robot != null)
                     {
-                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.playerGuid).displayName + " has dropped " + gameState.team2Name + "'s flag.";
+                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.PlayerGuid).displayName + " has dropped " + gameState.team2Name + "'s flag.";
                         SendEventHandler.SendToastMessageEvent(message, 1, "FlagDropped");
                     }
                     else

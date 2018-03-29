@@ -11,7 +11,7 @@ namespace NOVAKIN.Mod.Elite
 
             List<SpawnPoint> teamSpawnPoints = new List<SpawnPoint>();
 
-            foreach (SpawnPoint spawnpoint in Map.instance.SpawnPoints)
+            foreach (SpawnPoint spawnpoint in Map.Instance.SpawnPoints)
             {
                 if (spawnpoint.teamID == teamID && spawnpoint.IsClear())
                 {
@@ -53,14 +53,14 @@ namespace NOVAKIN.Mod.Elite
 
             LoadOutToken loadOutToken = new LoadOutToken(loadOut);
 
-            GameObject baseMech = DatabaseManager.instance.PrefabDatabase.GetPrefabByName("BaseMech");
+            GameObject baseMech = DatabaseManager.Instance.PrefabDatabase.GetPrefabByName("BaseMech");
             BoltEntity entity = BoltNetwork.Instantiate(baseMech, loadOutToken, position, rotation);
 
             if (entity != null)
             {
                 Unit unit = entity.GetComponent<Unit>();
                 unit.Setup(player.guid, player.teamId);
-                unit.gameObject.AddComponent<AbilityBoost>();
+                unit.gameObject.AddComponent<AbilityVelocityRedirection>();
 
                 if (player.connection == null)
                 {

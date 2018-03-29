@@ -15,7 +15,16 @@ namespace NOVAKIN.Mod.Elite
         {
             RegisterCallBacks();
             gameState = GameState.Instance;
-            PlayerManager.Instance.BeginRoundReset();
+
+            gameState.currentRoundTime = 0;
+            gameState.currentRoundStarted = false;
+            gameState.currentRoundEnded = false;
+            gameState.currentRoundLength = ServerManager.instance.serverSettingsData.serverSettings.roundLength * 60;
+
+            gameState.team1Score = 0;
+            gameState.team2Score = 0;
+            gameState.team1Name = ServerManager.instance.serverSettingsData.serverSettings.team1name;
+            gameState.team2Name = ServerManager.instance.serverSettingsData.serverSettings.team2name;
 
             StartCoroutine(MainRoutine());
         }
@@ -43,10 +52,6 @@ namespace NOVAKIN.Mod.Elite
         #region Round Management
         protected virtual IEnumerator MainRoutine()
         {
-            gameState.currentRoundStarted = false;
-            gameState.currentRoundEnded = false;
-            gameState.currentRoundLength = ServerManager.instance.serverSettingsData.serverSettings.roundLength * 60;
-
             SendCountdownMessage(15);
             yield return new WaitForSeconds(5);
             SendCountdownMessage(10);
@@ -88,22 +93,38 @@ namespace NOVAKIN.Mod.Elite
             if (timeRemaining <= 0)
                 message = "Round Has Begun";
 
-            SendEventHandler.SendChatMessageEvent(System.Guid.Empty, "<color=#FF0066FF>" + message + "</color>", false, 0, null);
+            SendEventHandler.SendToastMessageEvent(message, 0, null);
+            //SendEventHandler.SendChatMessageEvent(System.Guid.Empty, "<color=#FF0066FF>" + message + "</color>", false, 0, null);
         }
 
         protected virtual void EndRound()
         {
             SendEventHandler.SendEndOfRoundEvent();
-            SendEventHandler.SendChatMessageEvent(System.Guid.Empty, "<color=#FF0066FF>" + "Round Has Ended" + "</color>", false, 0, null);
+            SendEventHandler.SendToastMessageEvent("Round Has Ended", 0, null);
+            //SendEventHandler.SendChatMessageEvent(System.Guid.Empty, "<color=#FF0066FF>" + "Round Has Ended" + "</color>", false, 0, null);
 
-            PlayerManager.Instance.EndRoundReset();
+            Player player;
+            PlayerManager playerManager = PlayerManager.Instance;
+
+            for (int i = 0; i < playerManager.Players.Count; i++)
+            {
+                player = playerManager.Players[i];
+
+                if (player != null && player.entity != null && player.entity.isAttached && player.entity.isOwner)
+                {
+                    playerManager.DestroyPlayerControlledEntities(player);
+                }
+            }
         }
         #endregion
 
         #region Spawn Management
-        public virtual void OnPlayerDeath(Player player)
+        public virtual void OnPlayerDeath(Guid playerGuid)
         {
-            AddPlayerToSpawnQueue(player);
+            Player player = PlayerManager.Instance.PlayerFromGuid(playerGuid);
+
+            if (player != null)
+                AddPlayerToSpawnQueue(player);
         }
 
         public virtual void OnPlayerRequestRespawn(Player player)
@@ -135,7 +156,7 @@ namespace NOVAKIN.Mod.Elite
         {
             if (gameState.currentRoundStarted == true && gameState.currentRoundEnded == false)
             {
-                if (player.teamId > 0 && playersAwaitingRespawn.ContainsKey(player))
+                if (player != null && player.teamId > 0 && playersAwaitingRespawn.ContainsKey(player))
                 {
                     if (immediate || playersAwaitingRespawn[player] <= DateTime.Now)
                     {

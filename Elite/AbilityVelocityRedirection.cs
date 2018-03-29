@@ -40,7 +40,7 @@ namespace NOVAKIN.Mod.Elite
                     abilityVec = ForceVec(inputVec, robotMotor);
                     robotMotor.ConsumeAbility();
 
-                    SendEventHandler.SendPlaySoundEvent("VelocityRedirect01", true, transform.position);
+                    SendEventHandler.SendPlaySoundEvent("VelocityRedirect", true, transform.position);
                     break;
                 }
 

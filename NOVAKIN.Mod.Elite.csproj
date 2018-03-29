@@ -68,6 +68,7 @@
     <Compile Include="Elite\AbilityBoost.cs" />
     <Compile Include="Elite\AbilityVelocityRedirection.cs" />
     <Compile Include="Elite\CallBackHandler.cs" />
+    <Compile Include="Elite\DamageCallBackHandler.cs" />
     <Compile Include="Elite\GameManagerCTF.cs" />
     <Compile Include="Elite\FlagMotor.cs" />
     <Compile Include="Elite\Elite.cs" />
@@ -81,13 +82,14 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>powershell Remove-Item -Path '$(SolutionDir)Elite.zip' -Force
-powershell Remove-Item -Path '$(SolutionDir)Elite.nkvol' -Force
-
-powershell New-Item -ItemType directory -Path "C:\Workspaces\NOVAKIN\Assets\StreamingAssets\Mods\Elite" -force
+    <PostBuildEvent>powershell New-Item -ItemType directory -Path "C:\Workspaces\NOVAKIN\Assets\StreamingAssets\Mods\Elite" -force
 powershell Compress-Archive -Path '$(SolutionDir)Elite/ModData.json' -DestinationPath '$(SolutionDir)Elite.zip' -Force
 powershell Compress-Archive -Path '$(SolutionDir)Elite/*' -DestinationPath '$(SolutionDir)Elite.zip' -Force
 powershell Rename-Item '$(SolutionDir)Elite.zip' '$(SolutionDir)Elite.nkvol' -force
 powershell Copy-Item '$(SolutionDir)Elite.nkvol' "C:\Workspaces\NOVAKIN\Assets\StreamingAssets\Mods\Elite" -force</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>powershell Remove-Item -Path '$(SolutionDir)Elite.zip' -Force
+powershell Remove-Item -Path '$(SolutionDir)Elite.nkvol' -Force</PreBuildEvent>
   </PropertyGroup>
 </Project>

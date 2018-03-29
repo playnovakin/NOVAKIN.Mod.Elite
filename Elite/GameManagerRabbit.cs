@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace NOVAKIN.Mod.Elite
 {
@@ -9,6 +10,8 @@ namespace NOVAKIN.Mod.Elite
         private FlagCarrier flagCarrier;
         private float flagHeldTime = 0;
 
+        private float flagReturnTime = 15.0f;
+
         #region Startup
         protected override void Start()
         {
@@ -18,6 +21,7 @@ namespace NOVAKIN.Mod.Elite
             gameState.team2Name = "WOLVES";
 
             FlagSetup();
+            StartCoroutine(FlagRoutine());
         }
 
         protected override void RegisterCallBacks()
@@ -43,6 +47,18 @@ namespace NOVAKIN.Mod.Elite
         }
 
         #region Flag Stuff
+        IEnumerator FlagRoutine()
+        {
+            while (true)
+            {
+                if (flag.isHome == false && flag.carrier == null && 
+                    flag.droppedTime + flagReturnTime < BoltNetwork.serverTime)
+                    ReturnFlagHome(flag, false);
+
+                yield return new WaitForFixedUpdate();
+            }
+        }
+
         private void FlagSetup()
         {
             flagSpawnPoint = FindObjectOfType<FlagSpawnPoint>();
@@ -71,9 +87,9 @@ namespace NOVAKIN.Mod.Elite
 
                 if (flagHeldTime >= 1)
                 {
-                    PlayerManager.Instance.ModifyPlayerScore(flagCarrier.Robot.playerGuid, 1);
+                    PlayerManager.Instance.ModifyPlayerScore(flagCarrier.Robot.PlayerGuid, 1);
 
-                    GameState.Instance.team1Score = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.playerGuid).score;
+                    GameState.Instance.team1Score = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.PlayerGuid).score;
 
                     int highest = 0;
 
@@ -138,9 +154,9 @@ namespace NOVAKIN.Mod.Elite
 
                 if (flagCarrier != null && flagCarrier.Robot != null)
                 {
-                    PlayerManager.Instance.SetPlayerTeam(flagCarrier.Robot.playerGuid, 1);
+                    PlayerManager.Instance.SetPlayerTeam(flagCarrier.Robot.PlayerGuid, 1);
 
-                    string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.playerGuid).displayName + " has taken the flag and is now the Rabbit.";
+                    string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.PlayerGuid).displayName + " has taken the flag and is now the Rabbit.";
                     SendEventHandler.SendToastMessageEvent(message, 2, "FlagTaken");
                 }
 
@@ -159,9 +175,9 @@ namespace NOVAKIN.Mod.Elite
 
                     if (flagCarrier != null && flagCarrier.Robot != null)
                     {
-                        PlayerManager.Instance.SetPlayerTeam(flagCarrier.Robot.playerGuid, 2);
+                        PlayerManager.Instance.SetPlayerTeam(flagCarrier.Robot.PlayerGuid, 2);
 
-                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.playerGuid).displayName + " dropped the flag and is no longer the Rabbit.";
+                        string message = PlayerManager.Instance.PlayerFromGuid(flagCarrier.Robot.PlayerGuid).displayName + " dropped the flag and is no longer the Rabbit.";
                         SendEventHandler.SendToastMessageEvent(message, 1, "FlagDropped");
                     }
                 }

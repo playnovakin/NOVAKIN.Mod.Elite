@@ -1,284 +1,411 @@
-{
-  "modName": "elite",
-  "modVersion": "1.0a",
-  "modCreator": "BATTLE OVERRIDE",
-  "modDescription": null,
-  "modURL": "https://github.com/playnovakin/NOVAKIN.Mod.Elite",
-  "armors": [
-    {
-      "armorName": "Scout",
-      "maxHealth": 100,
-      "maxEnergy": 80,
-      "energyRegenRate": 11.0,
-      "mass": 9.0,
-      "groundForce": 40.0,
-      "groundTraction": 3.0,
-      "walkSpeed": 11.0,
-      "jumpMinDot": 0.2,
-      "jumpGraceTime": 0.256,
-      "jumpImpulse": 37.0,
-      "jetForce": 236.0,
-      "jetSideForce": 0.8,
-      "jetForward": 32.0,
-      "jetEnergyDrain": 25.0,
-      "minimumDamageSpeed": 25.0,
-      "grenadeProjectile": "HEGrenadeProjectile",
-      "soundGrenadeFire": "HEGrenadeFire",
-      "maxWeapons": 3,
-      "allowedItems": null,
-      "renderObject": "Soldier2",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    },
-    {
-      "armorName": "Mercenary",
-      "maxHealth": 150,
-      "maxEnergy": 110,
-      "energyRegenRate": 14.0,
-      "mass": 13.0,
-      "groundForce": 35.0,
-      "groundTraction": 3.0,
-      "walkSpeed": 9.0,
-      "jumpMinDot": 0.2,
-      "jumpGraceTime": 0.256,
-      "jumpImpulse": 62.0,
-      "jetForce": 325.0,
-      "jetSideForce": 0.8,
-      "jetForward": 32.0,
-      "jetEnergyDrain": 32.0,
-      "minimumDamageSpeed": 25.0,
-      "grenadeProjectile": "HEGrenadeProjectile",
-      "soundGrenadeFire": "HEGrenadeFire",
-      "maxWeapons": 4,
-      "allowedItems": null,
-      "renderObject": "Soldier2",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    },
-    {
-      "armorName": "Cyborg",
-      "maxHealth": 240,
-      "maxEnergy": 160,
-      "energyRegenRate": 14.0,
-      "mass": 18.0,
-      "groundForce": 35.0,
-      "groundTraction": 4.5,
-      "walkSpeed": 6.0,
-      "jumpMinDot": 0.2,
-      "jumpGraceTime": 0.256,
-      "jumpImpulse": 150.0,
-      "jetForce": 385.0,
-      "jetSideForce": 0.8,
-      "jetForward": 12.0,
-      "jetEnergyDrain": 35.5,
-      "minimumDamageSpeed": 25.0,
-      "grenadeProjectile": "HEGrenadeProjectile",
-      "soundGrenadeFire": "HEGrenadeFire",
-      "maxWeapons": 5,
-      "allowedItems": null,
-      "renderObject": "Soldier2",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    }
+{  
+  "modName":"elite",
+  "modVersion":"1.0a",
+  "modCreator":"BATTLE OVERRIDE",
+  "modDescription":null,
+  "modURL":"https://github.com/playnovakin/NOVAKIN.Mod.Elite",
+  "armors":[  
+     {  
+        "armorName":"Scout",
+        "maxHealth":100,
+        "maxEnergy":60,
+        "energyRegenRate":8.0,
+        "mass":9.0,
+        "groundForce":40.0,
+        "groundTraction":3.0,
+        "walkSpeed":11.0,
+        "jumpMinDot":0.2,
+        "jumpGraceTime":0.256,
+        "jumpImpulse":37.0,
+        "jetForce":236.0,
+        "jetSideForce":0.8,
+        "jetForward":32.0,
+        "jetEnergyDrain":15.0,
+        "minimumDamageSpeed":25.0,
+        "grenadeProjectile":"HEGrenadeProjectile",
+        "soundGrenadeFire":"HEGrenadeFire",
+        "maxWeapons":3,
+        "allowedItems":null,
+        "renderObject":{  
+           "renderObjectName":"Soldier2",
+           "position":{  
+              "x":0.0,
+              "y":0.0,
+              "z":0.0
+           },
+           "rotation":{  
+              "x":0.0,
+              "y":0.0,
+              "z":0.0
+           }
+        }
+     },
+     {  
+        "armorName":"Mercenary",
+        "maxHealth":150,
+        "maxEnergy":90,
+        "energyRegenRate":8.0,
+        "mass":13.0,
+        "groundForce":35.0,
+        "groundTraction":3.0,
+        "walkSpeed":9.0,
+        "jumpMinDot":0.2,
+        "jumpGraceTime":0.256,
+        "jumpImpulse":62.0,
+        "jetForce":325.0,
+        "jetSideForce":0.8,
+        "jetForward":32.0,
+        "jetEnergyDrain":31.25,
+        "minimumDamageSpeed":25.0,
+        "grenadeProjectile":"HEGrenadeProjectile",
+        "soundGrenadeFire":"HEGrenadeFire",
+        "maxWeapons":4,
+        "allowedItems":null,
+        "renderObject":{  
+           "renderObjectName":"Soldier2",
+           "position":{  
+              "x":0.0,
+              "y":0.0,
+              "z":0.0
+           },
+           "rotation":{  
+              "x":0.0,
+              "y":0.0,
+              "z":0.0
+           }
+        }
+     },
+     {  
+        "armorName":"Cyborg",
+        "maxHealth":240,
+        "maxEnergy":140,
+        "energyRegenRate":8.0,
+        "mass":18.0,
+        "groundForce":35.0,
+        "groundTraction":4.5,
+        "walkSpeed":6.0,
+        "jumpMinDot":0.2,
+        "jumpGraceTime":0.256,
+        "jumpImpulse":150.0,
+        "jetForce":385.0,
+        "jetSideForce":0.8,
+        "jetForward":12.0,
+        "jetEnergyDrain":34.375,
+        "minimumDamageSpeed":25.0,
+        "grenadeProjectile":"HEGrenadeProjectile",
+        "soundGrenadeFire":"HEGrenadeFire",
+        "maxWeapons":5,
+        "allowedItems":null,
+        "renderObject":{  
+           "renderObjectName":"Soldier2",
+           "position":{  
+              "x":0.0,
+              "y":0.0,
+              "z":0.0
+           },
+           "rotation":{  
+              "x":0.0,
+              "y":0.0,
+              "z":0.0
+           }
+        }
+     }
   ],
-  "weapons": [
-    {
-      "weaponName": "PlasmaFusor",
-      "maxAmmo": 15,
-      "ammoCost": 1,
-      "energyCost": 0,
-      "rateOfFire": 40.0,
-      "spread": 0.0,
-      "reticleIndex": 0,
-      "reloadSoundDelay": 0.250,
-      "soundFire": "PlasmaFusorFire",
-      "soundDryFire": "PlasmaFusorDryFire",
-      "soundReload": "PlasmaFusorReload",
-      "soundRaiseWeapon": "PlasmaFusorRaise",
-      "projectile": "PlasmaFusorProjectile",
-      "renderObject": "PlasmaFusor",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    },
-    {
-      "weaponName": "GrenadeLauncher",
-      "maxAmmo": 15,
-      "ammoCost": 1,
-      "energyCost": 0,
-      "rateOfFire": 60.0,
-      "spread": 0.0,
-      "reticleIndex": 1,
-      "reloadSoundDelay": 0.125,
-      "soundFire": "GrenadeLauncherFire",
-      "soundDryFire": "GrenadeLauncherDryFire",
-      "soundReload": "GrenadeLauncherReload",
-      "soundRaiseWeapon": "GrenadeLauncherRaise",
-      "projectile": "GrenadeLauncherProjectile",
-      "renderObject": "GrenadeLauncher",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    },
-    {
-      "weaponName": "Chaingun",
-      "maxAmmo": 250,
-      "ammoCost": 1,
-      "energyCost": 0,
-      "rateOfFire": 300.0,
-      "spread": 0.0,
-      "reticleIndex": 2,
-      "reloadSoundDelay": 0.0,
-      "soundFire": "ChaingunFire",
-      "soundDryFire": "ChaingunDryFire",
-      "soundReload": "ChaingunReload",
-      "soundRaiseWeapon": "ChaingunrRaise",
-      "projectile": "ChaingunProjectile",
-      "renderObject": "Chaingun",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    }
+  "weapons":[  
+     {  
+        "weaponName":"PlasmaFusor",
+        "maxAmmo":15,
+        "ammoCost":1,
+        "energyCost":0,
+        "rateOfFire":40.0,
+        "animationSpeed":1.0,
+        "spread":0.0,
+        "reticleIndex":0,
+        "reloadSoundDelay":0.250,
+        "soundFire":"PlasmaFusorFire",
+        "soundDryFire":"PlasmaFusorDryFire",
+        "soundReload":"PlasmaFusorReload",
+        "soundRaiseWeapon":"PlasmaFusorRaise",
+        "projectile":"PlasmaFusorProjectile",
+        "muzzleFlashName":"PlasmaFusorMuzzleFlash",
+        "muzzlePosition": {
+          "x": 0.171,
+          "y": 0.035,
+          "z": 0.226
+        },
+        "leftHandPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "leftHandRotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "renderObjects":[  
+           {  
+              "renderObjectName":"PlasmaFusor",
+              "position":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              },
+              "rotation":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              }
+           }
+        ]
+     },
+     {  
+        "weaponName":"GrenadeLauncher",
+        "maxAmmo":1500,
+        "ammoCost":1,
+        "energyCost":0,
+        "rateOfFire":60.0,
+        "animationSpeed":1.0,
+        "spread":0.0,
+        "reticleIndex":1,
+        "reloadSoundDelay":0.125,
+        "soundFire":"GrenadeLauncherFire",
+        "soundDryFire":"GrenadeLauncherDryFire",
+        "soundReload":"GrenadeLauncherReload",
+        "soundRaiseWeapon":"GrenadeLauncherRaise",
+        "projectile":"GrenadeLauncherProjectile",
+        "muzzleFlashName":"GrenadeLauncherMuzzleFlash",
+        "muzzlePosition": {
+          "x": 0.105,
+          "y": 0.03,
+          "z": 1.048
+        },
+        "leftHandPosition": {
+          "x": -0.1466,
+          "y": -0.2655,
+          "z": 0.3343
+        },
+        "leftHandRotation": {
+          "x": -0.589,
+          "y": -11.523,
+          "z": -146.006
+        },
+        "renderObjects":[  
+           {  
+              "renderObjectName":"GrenadeLauncher",
+              "position":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              },
+              "rotation":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              }
+           }
+        ]
+     },
+     {  
+        "weaponName":"Chaingun",
+        "maxAmmo":250,
+        "ammoCost":1,
+        "energyCost":0,
+        "rateOfFire":300.0,
+        "animationSpeed":1.0,
+        "spread":0.0,
+        "reticleIndex":2,
+        "reloadSoundDelay":0.0,
+        "soundFire":"ChaingunFire",
+        "soundDryFire":"ChaingunDryFire",
+        "soundReload":"ChaingunReload",
+        "soundRaiseWeapon":"ChaingunrRaise",
+        "projectile":"ChaingunProjectile",
+        "renderObjects":[  
+           {  
+              "renderObjectName":"Chaingun",
+              "position":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              },
+              "rotation":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              }
+           }
+        ]
+     }
   ],
-  "projectiles": [
-    {
-      "projectileName": "PlasmaFusorProjectile",
-      "speed": 80.0,
-      "inheritance": 0.5,
-      "minLifeTime": 0.0,
-      "maxLifeTime": 8.0,
-      "isGrenade": false,
-      "explosion": "PlasmaFusorExplosion",
-      "renderObject": "PlasmaFusorProjectile",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    },
-    {
-      "projectileName": "GrenadeLauncherProjectile",
-      "speed": 45.0,
-      "inheritance": 1.0,
-      "minLifeTime": 1.25,
-      "maxLifeTime": 8.0,
-      "isGrenade": true,
-      "explosion": "GrenadeLauncherExplosion",
-      "renderObject": "GrenadeLauncherProjectile",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    },
-	{
-      "projectileName": "HEGrenadeProjectile",
-      "speed": 35.0,
-      "inheritance": 1.0,
-      "minLifeTime": 1.0,
-      "maxLifeTime": 2.0,
-      "isGrenade": true,
-      "explosion": "HEGrenadeExplosion",
-      "renderObject": "HEGrenadeProjectile",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    }
+  "projectiles":[  
+     {  
+        "projectileName":"PlasmaFusorProjectile",
+        "speed":80.0,
+        "inheritance":0.5,
+        "minLifeTime":0.0,
+        "maxLifeTime":8.0,
+        "isGrenade":false,
+        "explosion":"PlasmaFusorExplosion",
+        "renderObject":{  
+           "renderObjectName":"PlasmaFusorProjectile",
+           "position":{  
+              "x":0.0,
+              "y":0.0,
+              "z":0.0
+           },
+           "rotation":{  
+              "x":0.0,
+              "y":0.0,
+              "z":0.0
+           }
+        }
+     },
+     {  
+        "projectileName":"GrenadeLauncherProjectile",
+        "speed":45.0,
+        "inheritance":1.0,
+        "minLifeTime":0.5,
+        "maxLifeTime":8.0,
+        "isGrenade":true,
+        "explosion":"GrenadeLauncherExplosion",
+        "renderObject":{  
+           "renderObjectName":"GrenadeLauncherProjectile",
+           "position":{  
+              "x":0.0,
+              "y":0.0,
+              "z":0.0
+           },
+           "rotation":{  
+              "x":0.0,
+              "y":0.0,
+              "z":0.0
+           }
+        }
+     },
+     {  
+        "projectileName":"HEGrenadeProjectile",
+        "speed":35.0,
+        "inheritance":1.0,
+        "minLifeTime":1.0,
+        "maxLifeTime":2.0,
+        "isGrenade":true,
+        "explosion":"HEGrenadeExplosion",
+        "renderObject":{  
+           "renderObjectName":"HEGrenadeProjectile",
+           "position":{  
+              "x":0.0,
+              "y":0.0,
+              "z":0.0
+           },
+           "rotation":{  
+              "x":0.0,
+              "y":0.0,
+              "z":0.0
+           }
+        }
+     }
   ],
-  "explosions": [
-    {
-      "explosionName": "PlasmaFusorExplosion",
-      "radius": 7.5,
-      "power": 150,
-      "liftBoost": 2.5,
-      "damage": 60,
-      "damageType": 0,
-      "soundExplode": "PlasmaFusorExplosion",
-      "soundExplodeMaxDistance": 2000,
-      "renderObject": "PlasmaFusorExplosion",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    },
-    {
-      "explosionName": "GrenadeLauncherExplosion",
-      "radius": 15,
-      "power": 150,
-      "liftBoost": 2.5,
-      "damage": 40,
-      "damageType": 0,
-      "soundExplode": "GrenadeLauncherExplosion",
-      "soundExplodeMaxDistance": 2000,
-      "renderObject": "GrenadeLauncherExplosion",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    },
-    {
-      "explosionName": "ChaingunExplosion",
-      "radius": 0.5,
-      "power": 1,
-      "liftBoost": 0,
-      "damage": 8,
-      "damageType": 0,
-      "soundExplode": "ChaingunExplosion",
-      "soundExplodeMaxDistance": 100,
-      "renderObject": "ChaingunExplosion",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    },
-    {
-      "explosionName": "HEGrenadeExplosion",
-      "radius": 9.5,
-      "power": 180,
-      "liftBoost": 2.5,
-      "damage": 40,
-      "damageType": 0,
-      "soundExplode": "HEGrenadeExplosion",
-      "soundExplodeMaxDistance": 1500,
-      "renderObject": "HEGrenadeExplosion",
-      "renderObjectPositionX": 0.0,
-      "renderObjectPositionY": 0.0,
-      "renderObjectPositionZ": 0.0,
-      "renderObjectRotationX": 0.0,
-      "renderObjectRotationY": 0.0,
-      "renderObjectRotationZ": 0.0
-    }
+  "explosions":[  
+     {  
+        "explosionName":"PlasmaFusorExplosion",
+        "radius":7.5,
+        "power":150,
+        "liftBoost":2.5,
+        "damage":60,
+        "damageType":0,
+        "soundExplode":"PlasmaFusorExplosion",
+        "soundExplodeMaxDistance":2000,
+        "renderObjects":[  
+           {  
+              "renderObjectName":"PlasmaFusorExplosion",
+              "position":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              },
+              "rotation":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              }
+           }
+        ]
+     },
+     {  
+        "explosionName":"GrenadeLauncherExplosion",
+        "radius":15,
+        "power":150,
+        "liftBoost":2.5,
+        "damage":40,
+        "damageType":0,
+        "soundExplode":"GrenadeLauncherExplosion",
+        "soundExplodeMaxDistance":2000,
+        "renderObjects":[  
+           {  
+              "renderObjectName":"GrenadeLauncherExplosion",
+              "position":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              },
+              "rotation":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              }
+           }
+        ]
+     },
+     {  
+        "explosionName":"ChaingunExplosion",
+        "radius":0.5,
+        "power":1,
+        "liftBoost":0,
+        "damage":8,
+        "damageType":0,
+        "soundExplode":"ChaingunExplosion",
+        "soundExplodeMaxDistance":100,
+        "renderObjects":[  
+           {  
+              "renderObjectName":"ChaingunExplosion",
+              "position":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              },
+              "rotation":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              }
+           }
+        ]
+     },
+     {  
+        "explosionName":"HEGrenadeExplosion",
+        "radius":9.5,
+        "power":180,
+        "liftBoost":2.5,
+        "damage":40,
+        "damageType":0,
+        "soundExplode":"HEGrenadeExplosion",
+        "soundExplodeMaxDistance":1500,
+        "renderObjects":[  
+           {  
+              "renderObjectName":"HEGrenadeExplosion",
+              "position":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              },
+              "rotation":{  
+                 "x":0.0,
+                 "y":0.0,
+                 "z":0.0
+              }
+           }
+        ]
+     }
   ]
 }

@@ -24,7 +24,7 @@ namespace NOVAKIN.Mod.Elite
             //abilityVec = robotMotor._MotorState.velocity * 0.66f;
 
             robotMotor.ConsumeAbility();
-            SendEventHandler.SendPlaySoundEvent("Boost01", true, transform.position);
+            SendEventHandler.SendPlaySoundEvent("Boost", true, transform.position);
 
             yield return new WaitForFixedUpdate();
 
