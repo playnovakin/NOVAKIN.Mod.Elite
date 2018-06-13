@@ -1,4 +1,5 @@
 ﻿using NOVAKIN.ModBridge;
+using UnityEngine;
 
 namespace NOVAKIN.Mod.Elite
 {
@@ -6,6 +7,7 @@ namespace NOVAKIN.Mod.Elite
     {
         public void Init()
         {
+            Debug.Log("Loading Mod Elite Started");
             CallBackHandler.RegisterCallBacks();
         }
     }

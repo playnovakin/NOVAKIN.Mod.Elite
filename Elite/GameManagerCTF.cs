@@ -19,6 +19,24 @@ namespace NOVAKIN.Mod.Elite
 
             FlagSetup();
             StartCoroutine(FlagRoutine());
+
+            CreateBot();
+        }
+
+        private void CreateBot()
+        {
+            BoltEntity playerEntity = BoltNetwork.Instantiate(BoltPrefabs.Player);
+
+            Player bot1 = playerEntity.GetComponent<Player>();
+            bot1.guid = System.Guid.NewGuid();
+            bot1.connection = null;
+            bot1.displayName = "bot1";
+
+            PlayerManager.Instance.AddPlayer(bot1);
+            PlayerManager.Instance.SetPlayerTeam(bot1, 1);
+
+            SpawnPoint spawnPoint = Utils.RandomSpawnPoint(2);
+            Utils.SpawnPlayerAtPosition(bot1, spawnPoint.transform.position, spawnPoint.transform.rotation);
         }
 
         protected override void RegisterCallBacks()

@@ -49,7 +49,7 @@ namespace NOVAKIN.Mod.Elite
             PlayerManager.Instance.DestroyPlayerControlledEntities(player);
 
             LoadOut loadOut = new LoadOut();
-            loadOut.itemNames = new string[] { "Scout", "PlasmaFusor", "GrenadeLauncher" };
+            loadOut.itemNames = new string[] { "Scout", "PlasmaFusor", "GrenadeLauncher", "ChainGun" };
 
             LoadOutToken loadOutToken = new LoadOutToken(loadOut);
 

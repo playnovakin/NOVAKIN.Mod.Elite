@@ -19,12 +19,12 @@ namespace NOVAKIN.Mod.Elite
             gameState.currentRoundTime = 0;
             gameState.currentRoundStarted = false;
             gameState.currentRoundEnded = false;
-            gameState.currentRoundLength = ServerManager.instance.serverSettingsData.serverSettings.roundLength * 60;
+            gameState.currentRoundLength = ServerManager.Instance.serverSettingsData.serverSettings.roundLength * 60;
 
             gameState.team1Score = 0;
             gameState.team2Score = 0;
-            gameState.team1Name = ServerManager.instance.serverSettingsData.serverSettings.team1name;
-            gameState.team2Name = ServerManager.instance.serverSettingsData.serverSettings.team2name;
+            gameState.team1Name = ServerManager.Instance.serverSettingsData.serverSettings.team1name;
+            gameState.team2Name = ServerManager.Instance.serverSettingsData.serverSettings.team2name;
 
             StartCoroutine(MainRoutine());
         }
@@ -83,7 +83,7 @@ namespace NOVAKIN.Mod.Elite
 
             yield return new WaitForSeconds(5);
 
-            ServerManager.instance.LoadMap(ServerManager.instance.NextMap());
+            ServerManager.Instance.LoadMap(ServerManager.Instance.NextMap());
         }
 
         protected virtual void SendCountdownMessage(int timeRemaining)

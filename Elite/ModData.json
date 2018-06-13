@@ -9,7 +9,7 @@
         "armorName":"Scout",
         "maxHealth":100,
         "maxEnergy":60,
-        "energyRegenRate":8.0,
+        "energyRegenRate":11.0,
         "mass":9.0,
         "groundForce":40.0,
         "groundTraction":3.0,
@@ -219,8 +219,24 @@
         "soundFire":"ChaingunFire",
         "soundDryFire":"ChaingunDryFire",
         "soundReload":"ChaingunReload",
-        "soundRaiseWeapon":"ChaingunrRaise",
+        "soundRaiseWeapon":"ChaingunRaise",
         "projectile":"ChaingunProjectile",
+        "muzzleFlashName":"ChainGunMuzzleFlash",
+        "muzzlePosition": {
+          "x": 0.165,
+          "y": 0.039,
+          "z": 0.25
+        },
+        "leftHandPosition": {
+          "x": -0.1466,
+          "y": -0.2655,
+          "z": 0.3343
+        },
+        "leftHandRotation": {
+          "x": -0.589,
+          "y": -11.523,
+          "z": -146.006
+        },
         "renderObjects":[  
            {  
               "renderObjectName":"Chaingun",
@@ -284,6 +300,28 @@
         }
      },
      {  
+      "projectileName":"ChainGunProjectile",
+      "speed":200.0,
+      "inheritance":0.5,
+      "minLifeTime":0.0,
+      "maxLifeTime":3.0,
+      "isGrenade":true,
+      "explosion":"ChainGunExplosion",
+      "renderObject":{  
+         "renderObjectName":"ChainGunProjectile",
+         "position":{  
+            "x":0.0,
+            "y":0.0,
+            "z":0.0
+         },
+         "rotation":{  
+            "x":0.0,
+            "y":0.0,
+            "z":0.0
+         }
+      }
+   },
+     {  
         "projectileName":"HEGrenadeProjectile",
         "speed":35.0,
         "inheritance":1.0,
@@ -312,7 +350,7 @@
         "radius":7.5,
         "power":150,
         "liftBoost":2.5,
-        "damage":60,
+        "damage":0,//60
         "damageType":0,
         "soundExplode":"PlasmaFusorExplosion",
         "soundExplodeMaxDistance":2000,
@@ -337,7 +375,7 @@
         "radius":15,
         "power":150,
         "liftBoost":2.5,
-        "damage":40,
+        "damage":0,//40
         "damageType":0,
         "soundExplode":"GrenadeLauncherExplosion",
         "soundExplodeMaxDistance":2000,
@@ -362,7 +400,7 @@
         "radius":0.5,
         "power":1,
         "liftBoost":0,
-        "damage":8,
+        "damage":0,//8
         "damageType":0,
         "soundExplode":"ChaingunExplosion",
         "soundExplodeMaxDistance":100,
