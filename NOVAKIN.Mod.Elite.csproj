@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>NOVAKIN.Mod</RootNamespace>
-    <AssemblyName>%40NOVAKIN.Mod.Elite</AssemblyName>
+    <AssemblyName>%40NOVAKIN.Mod</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -65,31 +65,27 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Elite\AbilityBoost.cs" />
-    <Compile Include="Elite\AbilityVelocityRedirection.cs" />
-    <Compile Include="Elite\CallBackHandler.cs" />
-    <Compile Include="Elite\DamageCallBackHandler.cs" />
-    <Compile Include="Elite\GameManagerCTF.cs" />
-    <Compile Include="Elite\FlagMotor.cs" />
-    <Compile Include="Elite\Elite.cs" />
-    <Compile Include="Elite\GameManager.cs" />
-    <Compile Include="Elite\GameManagerRabbit.cs" />
+    <Compile Include="Scripts\AbilityBoost.cs" />
+    <Compile Include="Scripts\AbilityVelocityRedirection.cs" />
+    <Compile Include="Scripts\CallBackHandler.cs" />
+    <Compile Include="Scripts\DamageCallBackHandler.cs" />
+    <Compile Include="Scripts\GameManagerCTF.cs" />
+    <Compile Include="Scripts\FlagMotor.cs" />
+    <Compile Include="Scripts\Initializer.cs" />
+    <Compile Include="Scripts\GameManager.cs" />
+    <Compile Include="Scripts\GameManagerRabbit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Elite\Utils.cs" />
+    <Compile Include="Scripts\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Elite\ModData.json" />
+    <None Include="Scripts\ModData.json" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>powershell New-Item -ItemType directory -Path "C:\Workspaces\NOVAKIN\Assets\StreamingAssets\Mods\Elite" -force
-powershell Compress-Archive -Path '$(SolutionDir)Elite/ModData.json' -DestinationPath '$(SolutionDir)Elite.zip' -Force
-powershell Compress-Archive -Path '$(SolutionDir)Elite/*' -DestinationPath '$(SolutionDir)Elite.zip' -Force
-powershell Rename-Item '$(SolutionDir)Elite.zip' '$(SolutionDir)Elite.nkvol' -force
-powershell Copy-Item '$(SolutionDir)Elite.nkvol' "C:\Workspaces\NOVAKIN\Assets\StreamingAssets\Mods\Elite" -force</PostBuildEvent>
+    <PostBuildEvent>powershell.exe -ExecutionPolicy ByPass -File "$(SolutionDir)BuildScripts\PostBuild.ps1" -ModName Elite -SolutionDir "$(SolutionDir)</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PreBuildEvent>powershell Remove-Item -Path '$(SolutionDir)Elite.zip' -Force
-powershell Remove-Item -Path '$(SolutionDir)Elite.nkvol' -Force</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>

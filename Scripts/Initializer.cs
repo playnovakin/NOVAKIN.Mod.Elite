@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace NOVAKIN.Mod.Elite
 {
-    public class Elite : IScript
+    public class Initializer : IScript
     {
         public void Init()
         {
