@@ -1,7 +1,7 @@
 param([string]$SolutionDir)
 
-$modName = Get-Content -Path $($SolutionDir + 'MODNAME')
-$serverPath = Get-Content -Path $($SolutionDir + 'SERVERPATH')
+$modName = Get-Content -Path $($SolutionDir + 'Definitions\MODNAME')
+$serverPath = Get-Content -Path $($SolutionDir + 'Definitions\SERVERPATH')
 $modPath = $($serverPath + '\NOVAKIN_Data\StreamingAssets\Mods\' + $modName)
 
 $zipPath = $SolutionDir
