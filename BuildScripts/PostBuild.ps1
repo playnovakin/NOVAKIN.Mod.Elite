@@ -23,7 +23,7 @@ if (Test-Path -Path $nkvolPath)
 }
 
 New-Item -ItemType directory -Path $modPath -Force
-Compress-Archive -Path $($SolutionDir + 'Scripts\ModData.json') -DestinationPath $($SolutionDir + $modName + '.zip') -Force -ErrorAction SilentlyContinue
-Compress-Archive -Path $($SolutionDir + 'Scripts\*.cs') -DestinationPath $($SolutionDir + $modName + '.zip') -Force -ErrorAction SilentlyContinue
+#Compress-Archive -Path $($SolutionDir + 'Scripts\*.json') -DestinationPath $($SolutionDir + $modName + '.zip')
+Compress-Archive -Path $($SolutionDir + 'Scripts\*') -DestinationPath $($SolutionDir + $modName + '.zip')
 Rename-Item $($SolutionDir + $modName + '.zip') $($SolutionDir + $modName + '.nkvol') -Force -ErrorAction SilentlyContinue
 Copy-Item $($SolutionDir + $modName + '.nkvol') $modPath -Force -ErrorAction SilentlyContinue
