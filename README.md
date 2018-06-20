@@ -13,3 +13,4 @@ If any specifical callbacks are needed to help with your mod, let me (defiance) 
 
 
 I will create a few videos on how to setup your dedicated server and your VS environment in order to mod for NK shortly, but anyone familiar with VS already should figure it out on thier own very easily.
+
